@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <%--<link rel="stylesheet" href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css' media="screen" />
+    <script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>--%>
+
+
+
+    <link rel="stylesheet" href="../../Assets/bootstrap/Content/bootstrap.min.css" media="screen" />
+    <script type="text/javascript" src="../../Assets/bootstrap/Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../Assets/bootstrap/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        //Disable the default MouseOver functionality of ASP.Net Menu control.
+        Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+            return false;
+        };
+        $(function () {
+            //Remove the style attributes.
+            $(".navbar-nav li, .navbar-nav a, .navbar-nav ul").removeAttr('style');
+
+            //Apply the Bootstrap class to the SubMenu.
+            $(".dropdown-menu").closest("li").removeClass().addClass("dropdown-toggle");
+
+            //Apply the Bootstrap properties to the SubMenu.
+            $(".dropdown-toggle").find("a").eq(0).attr("data-toggle", "dropdown").attr("aria-haspopup", "true").attr("aria-expanded", "false").append("<span class='caret'></span>");
+
+            //Apply the Bootstrap "active" class to the selected Menu item.
+            $("a.selected").closest("li").addClass("active");
+            $("a.selected").closest(".dropdown-toggle").addClass("active");
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Programação Web I</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
+                        IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav" DynamicMenuStyle-CssClass="dropdown-menu">
+                        <Items>
+                            <asp:MenuItem Text="Home" NavigateUrl="#" />
+                            <asp:MenuItem Text="Categoria" NavigateUrl="~/Views/Categoria/Index.aspx" />
+                            <asp:MenuItem Text="Contact" NavigateUrl="#" />
+                            <asp:MenuItem Text="Drop Down" NavigateUrl="#">
+                                <asp:MenuItem Text="Action" NavigateUrl="#" />
+                                <asp:MenuItem Text="Another action" NavigateUrl="#" />
+                                <asp:MenuItem Text="Something else here" NavigateUrl="#" />
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Help" NavigateUrl="#" />
+                            <asp:MenuItem Text="Nothing" />
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <% if (Session["flash_message"] != null || Session["error_message"] != null)
+                { %>
+            <div class="messages">
+                <% if (Session["flash_message"] != null)
+                    { %>
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <%= Session["flash_message"] %>
+                </div>
+                <%
+                        Session.Remove("flash_message");
+                    }
+                %>
+
+                <% if (Session["error_message"] != null)
+                    { %>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <%= Session["error_message"] %>
+                </div>
+                <%
+                        Session.Remove("error_message");
+                    }
+                %>
+            </div>
+            <% } %>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
