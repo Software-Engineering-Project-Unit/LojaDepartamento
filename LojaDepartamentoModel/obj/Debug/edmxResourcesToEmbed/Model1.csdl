@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_loja_departamentoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Produtoes" Relationship="db_loja_departamentoModel.FK_Produto_Categoria" FromRole="Categoria" ToRole="Produto" />
+  </EntityType>
+  <EntityType Name="Chefia">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+      <PropertyRef Name="IdeVendedor" />
+      <PropertyRef Name="Data" />
+    </Key>
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+    <Property Name="IdeVendedor" Type="Int32" Nullable="false" />
+    <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Departamento" Relationship="Self.FK_Chefia_Departamento" FromRole="Chefia" ToRole="Departamento" />
+    <NavigationProperty Name="Vendedor" Relationship="Self.FK_Chefia_Vendedor" FromRole="Chefia" ToRole="Vendedor" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cpf" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Vendas" Relationship="Self.FK_Venda_Cliente" FromRole="Cliente" ToRole="Venda" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sigla" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Chefias" Relationship="Self.FK_Chefia_Departamento" FromRole="Departamento" ToRole="Chefia" />
+    <NavigationProperty Name="RegistroVendas" Relationship="Self.FK_RegistroVenda_Departamento" FromRole="Departamento" ToRole="RegistroVenda" />
+    <NavigationProperty Name="Vendedors" Relationship="Self.FK_Vendedor_Departamento" FromRole="Departamento" ToRole="Vendedor" />
+    <NavigationProperty Name="Produtoes" Relationship="db_loja_departamentoModel.FK_Produto_Departamento" FromRole="Departamento" ToRole="Produto" />
+  </EntityType>
+  <EntityType Name="RegistroVenda">
+    <Key>
+      <PropertyRef Name="IdProduto" />
+      <PropertyRef Name="IdVenda" />
+    </Key>
+    <Property Name="IdProduto" Type="Int32" Nullable="false" />
+    <Property Name="IdVenda" Type="Int32" Nullable="false" />
+    <Property Name="Quantidade" Type="Int32" Nullable="false" />
+    <Property Name="ValorProduto" Type="Double" Nullable="false" />
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+    <Property Name="IdVendedor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departamento" Relationship="Self.FK_RegistroVenda_Departamento" FromRole="RegistroVenda" ToRole="Departamento" />
+    <NavigationProperty Name="Venda" Relationship="Self.FK_RegistroVenda_Venda" FromRole="RegistroVenda" ToRole="Venda" />
+    <NavigationProperty Name="Vendedor" Relationship="Self.FK_RegistroVenda_Vendedor" FromRole="RegistroVenda" ToRole="Vendedor" />
+    <NavigationProperty Name="Produto" Relationship="db_loja_departamentoModel.FK_RegistroVenda_Produto" FromRole="RegistroVenda" ToRole="Produto" />
+  </EntityType>
+  <EntityType Name="Venda">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ValorTotal" Type="Double" Nullable="false" />
+    <Property Name="Comissao" Type="Double" Nullable="false" />
+    <Property Name="ComissaoPaga" Type="Boolean" Nullable="false" />
+    <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdCliente" Type="Int32" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Venda_Cliente" FromRole="Venda" ToRole="Cliente" />
+    <NavigationProperty Name="RegistroVendas" Relationship="Self.FK_RegistroVenda_Venda" FromRole="Venda" ToRole="RegistroVenda" />
+  </EntityType>
+  <EntityType Name="Vendedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rg" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Escolaridade" Type="Int16" Nullable="false" />
+    <Property Name="Desligado" Type="Boolean" Nullable="false" />
+    <Property Name="DataAdmissao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CPF" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="IdDepartamento" Type="Int32" />
+    <NavigationProperty Name="Chefias" Relationship="Self.FK_Chefia_Vendedor" FromRole="Vendedor" ToRole="Chefia" />
+    <NavigationProperty Name="Departamento" Relationship="Self.FK_Vendedor_Departamento" FromRole="Vendedor" ToRole="Departamento" />
+    <NavigationProperty Name="RegistroVendas" Relationship="Self.FK_RegistroVenda_Vendedor" FromRole="Vendedor" ToRole="RegistroVenda" />
+  </EntityType>
+  <Association Name="FK_Chefia_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Chefia" Type="Self.Chefia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chefia">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chefia_Vendedor">
+    <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1" />
+    <End Role="Chefia" Type="Self.Chefia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chefia">
+        <PropertyRef Name="IdeVendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venda_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Venda" Type="Self.Venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Venda">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistroVenda_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="RegistroVenda" Type="Self.RegistroVenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistroVenda">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vendedor_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vendedor">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistroVenda_Venda">
+    <End Role="Venda" Type="Self.Venda" Multiplicity="1" />
+    <End Role="RegistroVenda" Type="Self.RegistroVenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistroVenda">
+        <PropertyRef Name="IdVenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistroVenda_Vendedor">
+    <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1" />
+    <End Role="RegistroVenda" Type="Self.RegistroVenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistroVenda">
+        <PropertyRef Name="IdVendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_loja_departamentoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+    <EntitySet Name="Chefias" EntityType="Self.Chefia" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Departamentoes" EntityType="Self.Departamento" />
+    <EntitySet Name="RegistroVendas" EntityType="Self.RegistroVenda" />
+    <EntitySet Name="Vendas" EntityType="Self.Venda" />
+    <EntitySet Name="Vendedors" EntityType="Self.Vendedor" />
+    <AssociationSet Name="FK_Chefia_Departamento" Association="Self.FK_Chefia_Departamento">
+      <End Role="Departamento" EntitySet="Departamentoes" />
+      <End Role="Chefia" EntitySet="Chefias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chefia_Vendedor" Association="Self.FK_Chefia_Vendedor">
+      <End Role="Vendedor" EntitySet="Vendedors" />
+      <End Role="Chefia" EntitySet="Chefias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venda_Cliente" Association="Self.FK_Venda_Cliente">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Venda" EntitySet="Vendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistroVenda_Departamento" Association="Self.FK_RegistroVenda_Departamento">
+      <End Role="Departamento" EntitySet="Departamentoes" />
+      <End Role="RegistroVenda" EntitySet="RegistroVendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vendedor_Departamento" Association="Self.FK_Vendedor_Departamento">
+      <End Role="Departamento" EntitySet="Departamentoes" />
+      <End Role="Vendedor" EntitySet="Vendedors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistroVenda_Venda" Association="Self.FK_RegistroVenda_Venda">
+      <End Role="Venda" EntitySet="Vendas" />
+      <End Role="RegistroVenda" EntitySet="RegistroVendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistroVenda_Vendedor" Association="Self.FK_RegistroVenda_Vendedor">
+      <End Role="Vendedor" EntitySet="Vendedors" />
+      <End Role="RegistroVenda" EntitySet="RegistroVendas" />
+    </AssociationSet>
+    <EntitySet Name="Produtoes" EntityType="db_loja_departamentoModel.Produto" />
+    <AssociationSet Name="FK_Produto_Categoria" Association="db_loja_departamentoModel.FK_Produto_Categoria">
+      <End Role="Categoria" EntitySet="Categorias" />
+      <End Role="Produto" EntitySet="Produtoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produto_Departamento" Association="db_loja_departamentoModel.FK_Produto_Departamento">
+      <End Role="Departamento" EntitySet="Departamentoes" />
+      <End Role="Produto" EntitySet="Produtoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistroVenda_Produto" Association="db_loja_departamentoModel.FK_RegistroVenda_Produto">
+      <End Role="Produto" EntitySet="Produtoes" />
+      <End Role="RegistroVenda" EntitySet="RegistroVendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProdutoSimilar_ProdutoSimilar" Association="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar">
+      <End Role="ProdutoSimilar" EntitySet="Produtoes" />
+      <End Role="ProdutoSimilar1" EntitySet="Produtoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Produto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantidade" Type="Int32" Nullable="false" />
+    <Property Name="Preco" Type="Double" Nullable="false" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+    <Property Name="IdDepartamento" Type="Int32" />
+    <NavigationProperty Name="Categoria" Relationship="db_loja_departamentoModel.FK_Produto_Categoria" FromRole="Produto" ToRole="Categoria" />
+    <NavigationProperty Name="Departamento" Relationship="db_loja_departamentoModel.FK_Produto_Departamento" FromRole="Produto" ToRole="Departamento" />
+    <NavigationProperty Name="RegistroVendas" Relationship="db_loja_departamentoModel.FK_RegistroVenda_Produto" FromRole="Produto" ToRole="RegistroVenda" />
+  </EntityType>
+  <EntityType Name="ProdutoSimilar" BaseType="db_loja_departamentoModel.Produto">
+    <Property Name="IdSimilar" Type="Int32" />
+    <NavigationProperty Name="ProdutoSimilar1" Relationship="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar" FromRole="ProdutoSimilar" ToRole="ProdutoSimilar1" />
+    <NavigationProperty Name="ProdutoSimilar2" Relationship="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar" FromRole="ProdutoSimilar1" ToRole="ProdutoSimilar" />
+  </EntityType>
+  <Association Name="FK_Produto_Categoria">
+    <End Type="db_loja_departamentoModel.Categoria" Role="Categoria" Multiplicity="1" />
+    <End Type="db_loja_departamentoModel.Produto" Role="Produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produto">
+        <PropertyRef Name="IdCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produto_Departamento">
+    <End Type="db_loja_departamentoModel.Departamento" Role="Departamento" Multiplicity="0..1" />
+    <End Type="db_loja_departamentoModel.Produto" Role="Produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produto">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistroVenda_Produto">
+    <End Type="db_loja_departamentoModel.Produto" Role="Produto" Multiplicity="1" />
+    <End Type="db_loja_departamentoModel.RegistroVenda" Role="RegistroVenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistroVenda">
+        <PropertyRef Name="IdProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProdutoSimilar_ProdutoSimilar">
+    <End Type="db_loja_departamentoModel.ProdutoSimilar" Role="ProdutoSimilar" Multiplicity="0..1" />
+    <End Type="db_loja_departamentoModel.ProdutoSimilar" Role="ProdutoSimilar1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProdutoSimilar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProdutoSimilar1">
+        <PropertyRef Name="IdSimilar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

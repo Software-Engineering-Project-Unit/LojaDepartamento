@@ -1,0 +1,11 @@
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\bin\Debug\LojaDepartamentoModel.dll.config
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\bin\Debug\LojaDepartamentoModel.dll
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\bin\Debug\LojaDepartamentoModel.pdb
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.dll
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.xml
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.csproj.CoreCompileInputs.cache
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.dll
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.pdb
+D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.csprojResolveAssemblyReference.cache
