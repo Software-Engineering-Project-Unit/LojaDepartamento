@@ -537,10 +537,10 @@
           <NavigationProperty Name="Departamento" Relationship="db_loja_departamentoModel.FK_Produto_Departamento" FromRole="Produto" ToRole="Departamento" />
           <NavigationProperty Name="RegistroVendas" Relationship="db_loja_departamentoModel.FK_RegistroVenda_Produto" FromRole="Produto" ToRole="RegistroVenda" />
         </EntityType>
-        <EntityType Name="ProdutoSimilar" BaseType="db_loja_departamentoModel.Produto">
+        <EntityType Name="EletroEletronico" BaseType="db_loja_departamentoModel.Produto">
           <Property Name="IdSimilar" Type="Int32" />
-          <NavigationProperty Name="ProdutoSimilar1" Relationship="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar" FromRole="ProdutoSimilar" ToRole="ProdutoSimilar1" />
-          <NavigationProperty Name="ProdutoSimilar2" Relationship="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar" FromRole="ProdutoSimilar1" ToRole="ProdutoSimilar" />
+          <NavigationProperty Name="ListaSimilar" Relationship="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar" FromRole="ProdutoSimilar" ToRole="ProdutoSimilar1" />
+          <NavigationProperty Name="Original" Relationship="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar" FromRole="ProdutoSimilar1" ToRole="ProdutoSimilar" />
         </EntityType>
         <Association Name="FK_Produto_Categoria">
           <End Type="db_loja_departamentoModel.Categoria" Role="Categoria" Multiplicity="1" />
@@ -579,8 +579,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProdutoSimilar_ProdutoSimilar">
-          <End Type="db_loja_departamentoModel.ProdutoSimilar" Role="ProdutoSimilar" Multiplicity="0..1" />
-          <End Type="db_loja_departamentoModel.ProdutoSimilar" Role="ProdutoSimilar1" Multiplicity="*" />
+          <End Type="db_loja_departamentoModel.EletroEletronico" Role="ProdutoSimilar" Multiplicity="0..1" />
+          <End Type="db_loja_departamentoModel.EletroEletronico" Role="ProdutoSimilar1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProdutoSimilar">
               <PropertyRef Name="Id" />
@@ -680,7 +680,7 @@
                 <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
               </MappingFragment>
             </EntityTypeMapping>
-            <EntityTypeMapping TypeName="IsTypeOf(db_loja_departamentoModel.ProdutoSimilar)">
+            <EntityTypeMapping TypeName="IsTypeOf(db_loja_departamentoModel.EletroEletronico)">
               <MappingFragment StoreEntitySet="ProdutoSimilar">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdSimilar" ColumnName="IdSimilar" />

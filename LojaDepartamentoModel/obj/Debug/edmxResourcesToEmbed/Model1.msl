@@ -85,7 +85,7 @@
           <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(db_loja_departamentoModel.ProdutoSimilar)">
+      <EntityTypeMapping TypeName="IsTypeOf(db_loja_departamentoModel.EletroEletronico)">
         <MappingFragment StoreEntitySet="ProdutoSimilar">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdSimilar" ColumnName="IdSimilar" />

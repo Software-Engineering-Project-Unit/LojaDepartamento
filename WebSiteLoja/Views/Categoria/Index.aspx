@@ -41,7 +41,7 @@
                     </Columns>
                 </asp:GridView>
 
-                <asp:ObjectDataSource runat="server" ID="ObjectDataSource1" OldValuesParameterFormatString="original_{0}" SelectMethod="ListarCategoria" TypeName="CategoriaController" DataObjectTypeName="LojaDepartamentoModel.Categoria" DeleteMethod="Deletar">
+                <asp:ObjectDataSource runat="server" ID="ObjectDataSource1" OldValuesParameterFormatString="original_{0}" SelectMethod="ListarCategoria" TypeName="CategoriaController" DataObjectTypeName="LojaDepartamentoModel.Categoria" DeleteMethod="Deletar" OnSelecting="ObjectDataSource1_Selecting">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="txtCategoria" PropertyName="Text" Name="nome" Type="String"></asp:ControlParameter>
                     </SelectParameters>

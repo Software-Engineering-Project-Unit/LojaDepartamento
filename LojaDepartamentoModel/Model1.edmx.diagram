@@ -20,12 +20,12 @@
         <AssociationConnector Association="db_loja_departamentoModel.FK_RegistroVenda_Venda" ManuallyRouted="false" />
         <AssociationConnector Association="db_loja_departamentoModel.FK_RegistroVenda_Vendedor" ManuallyRouted="false" />
         <EntityTypeShape EntityType="db_loja_departamentoModel.Produto" Width="1.5" PointX="3" PointY="5.625" />
-        <EntityTypeShape EntityType="db_loja_departamentoModel.ProdutoSimilar" Width="1.5" PointX="5.25" PointY="6.125" />
+        <EntityTypeShape EntityType="db_loja_departamentoModel.EletroEletronico" Width="1.5" PointX="5.25" PointY="6.125" />
         <AssociationConnector Association="db_loja_departamentoModel.FK_Produto_Categoria" />
         <AssociationConnector Association="db_loja_departamentoModel.FK_Produto_Departamento" />
         <AssociationConnector Association="db_loja_departamentoModel.FK_RegistroVenda_Produto" />
         <AssociationConnector Association="db_loja_departamentoModel.FK_ProdutoSimilar_ProdutoSimilar" />
-        <InheritanceConnector EntityType="db_loja_departamentoModel.ProdutoSimilar" />
+        <InheritanceConnector EntityType="db_loja_departamentoModel.EletroEletronico" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

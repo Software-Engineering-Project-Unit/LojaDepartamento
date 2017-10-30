@@ -14,12 +14,7 @@ public class CategoriaController
 {
     public CategoriaController()
     {
-        db_loja_departamentoEntities lojaDepartamentoEntities =
-                    new db_loja_departamentoEntities();
-
-
-
-       var result =  lojaDepartamentoEntities.Produtoes.OfType<ProdutoSimilar>().ToList<ProdutoSimilar>();
+   
     }
 
     [DataObjectMethod(DataObjectMethodType.Select)]

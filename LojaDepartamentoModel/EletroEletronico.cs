@@ -12,18 +12,18 @@ namespace LojaDepartamentoModel
     using System;
     using System.Collections.Generic;
     
-    public partial class ProdutoSimilar : Produto
+    public partial class EletroEletronico : Produto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProdutoSimilar()
+        public EletroEletronico()
         {
-            this.ProdutoSimilar1 = new HashSet<ProdutoSimilar>();
+            this.ListaSimilar = new HashSet<EletroEletronico>();
         }
     
         public Nullable<int> IdSimilar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProdutoSimilar> ProdutoSimilar1 { get; set; }
-        public virtual ProdutoSimilar ProdutoSimilar2 { get; set; }
+        public virtual ICollection<EletroEletronico> ListaSimilar { get; set; }
+        public virtual EletroEletronico Original { get; set; }
     }
 }

@@ -55,14 +55,9 @@
                         <Items>
                             <asp:MenuItem Text="Home" NavigateUrl="#" />
                             <asp:MenuItem Text="Categoria" NavigateUrl="~/Views/Categoria/Index.aspx" />
-                            <asp:MenuItem Text="Contact" NavigateUrl="#" />
-                            <asp:MenuItem Text="Drop Down" NavigateUrl="#">
-                                <asp:MenuItem Text="Action" NavigateUrl="#" />
-                                <asp:MenuItem Text="Another action" NavigateUrl="#" />
-                                <asp:MenuItem Text="Something else here" NavigateUrl="#" />
-                            </asp:MenuItem>
+                            <asp:MenuItem Text="Produto" NavigateUrl="~/Views/Produto/Index.aspx" />
+                            <asp:MenuItem Text="Vendedor" NavigateUrl="~/Views/Vendedor/Index.aspx" />
                             <asp:MenuItem Text="Help" NavigateUrl="#" />
-                            <asp:MenuItem Text="Nothing" />
                         </Items>
                     </asp:Menu>
                 </div>

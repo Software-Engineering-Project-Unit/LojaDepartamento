@@ -9,3 +9,13 @@ D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepar
 D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.dll
 D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.pdb
 D:\Profissional\UNIT\Tecnologia-Web-II\Implementacoes\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.csprojResolveAssemblyReference.cache
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\bin\Debug\LojaDepartamentoModel.dll.config
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\bin\Debug\LojaDepartamentoModel.dll
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\bin\Debug\LojaDepartamentoModel.pdb
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.dll
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.xml
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.csproj.CoreCompileInputs.cache
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.dll
+C:\Users\Marcelino\Google Drive\Projeto\LojaDepartamento\LojaDepartamentoModel\obj\Debug\LojaDepartamentoModel.pdb
