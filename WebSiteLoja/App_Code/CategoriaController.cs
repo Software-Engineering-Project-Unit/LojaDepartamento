@@ -14,7 +14,10 @@ public class CategoriaController
 {
     public CategoriaController()
     {
-   
+       // db_loja_departamentoEntities lojaDepartamentoEntities =
+         //           new db_loja_departamentoEntities();
+
+        //var result = lojaDepartamentoEntities.Produtoes.OfType<EletroEletronico>().ToList<EletroEletronico>();
     }
 
     [DataObjectMethod(DataObjectMethodType.Select)]

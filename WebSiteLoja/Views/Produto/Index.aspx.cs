@@ -11,4 +11,9 @@ public partial class Views_Produto_Index : System.Web.UI.Page
     {
 
     }
+
+    protected void ObjectDataSource1_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+    {
+
+    }
 }

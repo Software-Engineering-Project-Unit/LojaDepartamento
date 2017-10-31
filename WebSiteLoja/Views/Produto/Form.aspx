@@ -7,10 +7,10 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Categoria</h3>
+                <h3 class="panel-title">Produto</h3>
             </div>
             <div class="panel-body">
-                <asp:FormView ID="fvwProduto" DefaultMode="Insert" DataKeyNames="Id" EmptyDataText="Não há produto com o código especificado" Width="100%" runat="server" DataSourceID="ObjectDataSource1" OnItemUpdated="fvwProduto_ItemUpdated">
+                <asp:FormView ID="fvwProduto" DefaultMode="Insert" DataKeyNames="Id" EmptyDataText="Não há produto com o código especificado" Width="100%" runat="server" DataSourceID="ObjectDataSource1" OnItemUpdated="fvwProduto_ItemUpdated" OnPageIndexChanging="fvwProduto_PageIndexChanging">
 
                     <EditItemTemplate>
                         <div class="row">

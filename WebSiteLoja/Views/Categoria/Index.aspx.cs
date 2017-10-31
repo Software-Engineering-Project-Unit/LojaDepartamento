@@ -11,9 +11,4 @@ public partial class Views_Categoria_Index : System.Web.UI.Page
     {
 
     }
-
-    protected void ObjectDataSource1_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
-    {
-
-    }
 }

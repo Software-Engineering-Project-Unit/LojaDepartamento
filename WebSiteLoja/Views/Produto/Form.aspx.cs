@@ -33,4 +33,9 @@ public partial class Views_Produto_Form : System.Web.UI.Page
             Master.SetMessage("Erro inesperado ao atualizar. :(", MasterPage_MasterPage.TipoMensagem.Erro);
         }
     }
+
+    protected void fvwProduto_PageIndexChanging(object sender, FormViewPageEventArgs e)
+    {
+
+    }
 }

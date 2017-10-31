@@ -35,10 +35,10 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Categorias</h3>
+                <h3 class="panel-title">Produtos</h3>
             </div>
             <div class="panel-body">
-                <a href="Form.aspx" title="Nova Categoria"  class="btn btn-primary">Novo Produto</a>
+                <a href="Form.aspx" title="Novo Produto"  class="btn btn-primary">Novo Produto</a>
                 <br />
                 <br />
                 <asp:GridView ID="GridView1" EmptyDataText="Nenhum produto encontrado :(" runat="server" DataKeyNames="Id" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False" CssClass="table table-striped">
@@ -62,7 +62,7 @@
                     </Columns>
                 </asp:GridView>
 
-                <asp:ObjectDataSource runat="server" ID="ObjectDataSource1" OldValuesParameterFormatString="original_{0}" SelectMethod="ListarProduto" TypeName="ProdutoController">
+                <asp:ObjectDataSource runat="server" ID="ObjectDataSource1" OldValuesParameterFormatString="original_{0}" SelectMethod="ListarProduto" TypeName="ProdutoController" OnSelecting="ObjectDataSource1_Selecting">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="txtProduto" PropertyName="Text" Name="nome" Type="String"></asp:ControlParameter>
                     </SelectParameters>
